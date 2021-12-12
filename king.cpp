@@ -14,7 +14,6 @@ int King::isValidMove(Piece* board[boardSize], const int from_index, const int t
 
     int distance = abs(from_index - to_index);
     if (!(distance == 1 || distance == 7 || distance == 8 || distance == 9)) {
-//        cout << "Forbidden move-direction...";
         return false;
     }
 

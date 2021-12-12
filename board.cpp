@@ -6,7 +6,7 @@ using std::endl;
 Board::Board()
 {
     for (int i = 0; i < boardSize; ++i) {
-        Color c = (i < 32 ? white : black);
+        Color c = (i > 32 ? white : black);
         if (i / 8 == 1 || i / 8 == 6) {
             field[i] = new Pawn(c);
         } else if (i % 56 == 0 || i % 56 == 7) {
