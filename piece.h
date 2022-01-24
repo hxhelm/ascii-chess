@@ -8,17 +8,25 @@ using std::vector;
 using std::string;
 
 enum Color {
-    black = -1, white = 1
+    white = -1, black = 1
 };
 const int boardSize = 64;
+
+const int PAWN_INT_REP = 1;
+const int ROOK_INT_REP = 2;
+const int KNIGHT_INT_REP = 3;
+const int BISHOP_INT_REP = 4;
+const int QUEEN_INT_REP = 5;
+const int KING_INT_REP = 6;
 
 class Piece {
 public:
     Piece();
     Color getColor() const;
     string getColoredLabel();
-    int getIntegerRepresentation();
-    virtual int isValidMove(Piece* board[boardSize], const int from_index, const int to_index);
+    int getIntegerRepresentation() const;
+    virtual int isValidMove(Piece* const  board[boardSize], const int from_index, const int to_index);
+    virtual ~Piece(){};
 protected:
     Color color;
     string label_white = " ";

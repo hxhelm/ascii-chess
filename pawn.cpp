@@ -6,11 +6,10 @@ Pawn::Pawn(Color c) {
     label_black = "♙";
     label_white = "♟";
     color = c;
+    intRepresentation = PAWN_INT_REP;
 };
 
-int Pawn::isValidMove(Piece* board[boardSize], const int from_index, const int to_index) {
-//    cout << "Checking Pawn-moves...";
-
+int Pawn::isValidMove(Piece* const  board[boardSize], const int from_index, const int to_index) {
     // check if Pawn is in unmoved position (row 2 or row 7);
     bool unmoved = from_index / 8 == 1 || from_index / 8 == 6;
 
@@ -28,4 +27,8 @@ int Pawn::isValidMove(Piece* board[boardSize], const int from_index, const int t
     }
 
     return false;
+}
+
+Pawn::~Pawn()
+{
 };

@@ -32,14 +32,29 @@ int main()
             ) {
                 from_index = (move[1] - 49) * 8 + move[0] - 97;
                 to_index = (move[4] - 49) * 8 + move[3] - 97;
-                cout << from_index << " -> " << to_index << endl;
+//                cout << from_index << " -> " << to_index << endl;
 
                 if (board.moveIsValid(from_index, to_index)) {
                     cout << "Valid move :)" << endl;
                     Piece* piece = board.field[from_index];
+
                     if (moveTakesPiece(board.field[to_index], piece->getColor())) {
                         cout << "Taking enemy piece..." << endl;
+                        if (board.field[to_index]->getIntegerRepresentation() == KING_INT_REP) {
+                            board.field[to_index] = piece;
+                            board.field[from_index] = nullptr;
+                            cout << (board.player == black ? "Black" : "White") << " wins!" << endl;
+                            return 1;
+                        }
                     }
+
+//                    cout << "Moving piece INT_REP: " << board.field[from_index]->getIntegerRepresentation() << endl;
+
+                    if (board.field[to_index] != nullptr) {
+//                        cout << "Target piece INT_REP: " << board.field[to_index]->getIntegerRepresentation() << endl;
+                        delete board.field[to_index];
+                    }
+
                     board.field[to_index] = piece;
                     board.field[from_index] = nullptr;
 

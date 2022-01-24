@@ -38,14 +38,17 @@ bool Board::moveIsValid(const int from_index, const int to_index) {
 
 bool Board::isOpposingKingInDanger() {
     for (int i = 0; i < boardSize; ++i) {
-        if (instanceof<King>(field[i]) && field[i]->getColor() != player) {
-            for (int j = 0; j < boardSize; ++j) {
-                if (moveIsValid(j, i)) {
-                    return true;
-                }
+        if (field[i] == nullptr) continue;
+        if (field[i]->getColor() == player) continue;
+        if (field[i]->getIntegerRepresentation() != KING_INT_REP) continue;
+//        if (instanceof<King>(field[i])) continue;
+
+        for (int j = 0; j < boardSize; ++j) {
+            if (moveIsValid(j, i)) {
+                return true;
             }
-            break;
         }
+        break;
     }
 
     return false;
