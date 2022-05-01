@@ -25,7 +25,7 @@ public:
     Color getColor() const;
     string getColoredLabel();
     int getIntegerRepresentation() const;
-    virtual int isValidMove(Piece* const  board[boardSize], const int from_index, const int to_index);
+    virtual int isValidMove(Piece* const  board[boardSize], const int from_index, const int to_index) = 0;
     virtual ~Piece(){};
 protected:
     Color color;

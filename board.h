@@ -17,6 +17,7 @@ public:
     bool moveIsValid(const int from_index, const int to_index);
     bool isOpposingKingInDanger();
     void print();
+    ~Board();
 };
 
 #endif // BOARD_H

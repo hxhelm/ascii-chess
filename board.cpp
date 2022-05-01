@@ -70,3 +70,13 @@ void Board::print() {
     cout << endl << "\t  +----+----+----+----+----+----+----+----+" << endl;
     cout << "\t    a  | b  | c  | d  | e  | f  | g  | h\n\n";
 }
+
+Board::~Board()
+{
+    for (Piece* piece : field) {
+        if (piece != nullptr) {
+//            piece->~Piece();
+            delete piece;
+        }
+    }
+}

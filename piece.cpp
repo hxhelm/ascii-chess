@@ -15,7 +15,3 @@ int Piece::getIntegerRepresentation() const
 {
     return intRepresentation;
 };
-
-int Piece::isValidMove(Piece* const  board[boardSize], const int from_index, const int to_index) {
-    return false;
-};
